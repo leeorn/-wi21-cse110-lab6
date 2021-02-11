@@ -25,6 +25,9 @@ class ProductItem extends HTMLElement {
     price.setAttribute('class', 'price');
     img.setAttribute('src', '');
     img.setAttribute('alt', '');
+
+    // add button
+    const button = document.createElement("button");
   
     // the style (from styles.css file)
     const style = " \
