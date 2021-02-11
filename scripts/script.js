@@ -1,5 +1,5 @@
 // Script.js
-let itemsInfo; 
+let inventory; 
 
 window.addEventListener('DOMContentLoaded', () => {
   // if not in the local storage yet
@@ -8,14 +8,24 @@ window.addEventListener('DOMContentLoaded', () => {
       .then(function(response){return response.json()})
       .then(data => {
         // store the data in local storage
-        itemsInfo = data;
-        window.localStorage.setItem("data", JSON.stringify(itemsInfo));
+        inventory = data;
+        window.localStorage.setItem("data", JSON.stringify(inventory));
       })
   }
   else{
     // load the iteams' data from the local storage
-    itemsInfo = JSON.parse(window.localStorage.getItem("data"))
+    inventory = JSON.parse(window.localStorage.getItem("data"))
     // console.log(itemsInfo[0])
   }
+
+  // get each item in from the JSON file
+  inventory.forEach(element => {
+    // create custom element 
+    let item = document.createElement('product-item');
+    // set its values
+    item.setAttribute('title', item.title);
+    item.setAttribute('price', item.price);
+    item.setAttribute('id', item.id);
+  });
 
 });
