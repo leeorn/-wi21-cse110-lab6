@@ -18,14 +18,19 @@ window.addEventListener('DOMContentLoaded', () => {
     // console.log(itemsInfo[0])
   }
 
+  let parent = document.querySelector('#product-list');
+
   // get each item in from the JSON file
   inventory.forEach(element => {
     // create custom element 
     let item = document.createElement('product-item');
     // set its values
-    item.setAttribute('title', item.title);
-    item.setAttribute('price', item.price);
-    item.setAttribute('id', item.id);
+    item.setAttribute('title', element.title);
+    item.setAttribute('price', element.price);
+    item.setAttribute('id', element.id);
+
+    console.log(item)
+    parent.appendChild(item);
   });
 
 });

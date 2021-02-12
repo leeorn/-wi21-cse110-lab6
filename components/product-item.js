@@ -43,3 +43,11 @@ class ProductItem extends HTMLElement {
 }
 
 customElements.define('product-item', ProductItem);
+
+// var link = document.querySelector('product-item');
+                
+// // Clone the <template> in the import.
+// var template = link.import.querySelector('ul');
+// var clone = document.importNode(template.content, true);
+
+// document.querySelector('#product-list').appendChild(clone);
