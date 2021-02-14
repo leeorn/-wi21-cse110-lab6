@@ -29,8 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
     item.setAttribute('price', element.price);
     item.setAttribute('id', element.id);
 
-    console.log(item)
-    parent.appendChild(item);
+    
   });
 
 });

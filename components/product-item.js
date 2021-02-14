@@ -1,11 +1,6 @@
 // product-item.js
 
 class ProductItem extends HTMLElement {
-  // Specify observed attributes so that
-  // attributeChangedCallback will work
-  static get observedAttributes() {
-    return ['itemAdded', 'title', 'price', 'src'];
-  }
 
   constructor(){
     super();
@@ -20,14 +15,18 @@ class ProductItem extends HTMLElement {
     const price = document.createElement('p');
 
     // connect the components with their classes, etc.
-    li.setAttribute('class', 'product');
-    title.setAttribute('class', 'title');
-    price.setAttribute('class', 'price');
-    img.setAttribute('src', '');
-    img.setAttribute('alt', '');
+    // li.setAttribute('class', 'product');
+    // title.setAttribute('class', 'title');
+    // price.setAttribute('class', 'price');
+    // img.setAttribute('src', '');
+    // img.setAttribute('alt', '');
 
     // add button
-    const button = document.createElement("button");
+    const button = document.createElement('button');
+
+    li.appendChild(img);
+    li.appendChild(title);
+    li.appendChild(price);
   
     // the style (from styles.css file)
     const style = " \
@@ -40,6 +39,25 @@ class ProductItem extends HTMLElement {
     .title:hover{font-size: 1.1em; margin: 0; white-space: wrap; overflow: auto; text-overflow: unset;} "
 
   }
+
+
+  // Specify observed attributes so that
+  // attributeChangedCallback will work
+  static get observedAttributes() {
+    return ['title', 'price', 'src', 'product'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue){
+    if(name == 'product'){
+      li.setAttribute('class', 'product');
+      title.setAttribute('class', 'title');
+      price.setAttribute('class', 'price');
+      img.setAttribute('src', product.img);
+      img.setAttribute('alt', product.title);
+    }
+  }
+
+
 }
 
 customElements.define('product-item', ProductItem);
